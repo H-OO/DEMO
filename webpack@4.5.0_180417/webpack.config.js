@@ -59,7 +59,7 @@ const webpackConfig = {
           {
             loader: 'url-loader',
             options: {
-              limit: '3072',
+              limit: '3072', // 小于3KB转Base64
               name: 'img/[name].[hash:8].[ext]'
             }
           }
