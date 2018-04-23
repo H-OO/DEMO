@@ -94,10 +94,10 @@ if (CURRENT_ENV === 'development') {
     splitChunks: {
       cacheGroups: {
         // 使用该特性需要先注入该js文件，js才会生效
-        common: {
-          test: /node_modules|lib/,
+        __BRIDGE__: {
+          test: /node_modules|lib|common/, // 指定目录才进行抽离，主要针对第三方包和公共的服务
           chunks: 'initial',
-          name: 'common',
+          name: '__BRIDGE__',
           priority: 9,
           enforce: true
         }
@@ -148,13 +148,13 @@ for (let item in moduleConfig) {
       template: path.resolve(__dirname, `src/${item}/${item}.html`), // 模板路径
       chunks: (function() {
         const configChunks = moduleConfig[item].chunks;
-        const finalChunks = [item, 'common'];
+        const finalChunks = [item, '__BRIDGE__'];
         configChunks.map(function(v) {
           finalChunks.push(v);
         });
         return finalChunks;
       })(), // 指定所需的js
-      // hash: true, // 为css和js文件末尾添加hash，解决缓存问题
+      // hash: true, // 为css和js文件末尾添加hash
       inject: 'body' // 将js注入body标签
       // minify: { // 压缩html
       //   removeAttributeQuotes: true, // 移除属性的引号

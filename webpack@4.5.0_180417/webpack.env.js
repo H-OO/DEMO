@@ -9,4 +9,4 @@
  * ---
  */
 
- module.exports = 'development'; // development | production
+ module.exports = 'production'; // development | production

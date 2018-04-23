@@ -7,7 +7,7 @@
  */
 const config = {
   Home: {
-    chunks: ['echarts', 'lodash']
+    chunks: ['common', 'echarts', 'lodash']
   },
   News: {
     chunks: ['echarts', 'lodash']
