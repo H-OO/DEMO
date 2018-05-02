@@ -1,8 +1,11 @@
 import '../css/Home.css';
-import '../sass/Home.sass';
+import '../scss/Home.scss';
 import _ from 'lodash';
 import echarts from 'echarts';
-import $http from '../../common/httpServer.js';
+import $http from '$http';
+
+import testES6 from 'testES6';
+console.log(testES6);
 
 console.log(echarts); // use echarts
 console.log($http); // import httpServer

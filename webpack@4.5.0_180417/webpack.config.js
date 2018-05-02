@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin('[name]/[name].[hash:5].css'); // 分离css文件
-const extractSASS = new ExtractTextPlugin('[name]/[name].[hash:6].css'); // 分离sass文件
+const extractSCSS = new ExtractTextPlugin('[name]/[name].[hash:6].css'); // 分离scss文件
 
 const CURRENT_ENV = require('./webpack.env.js'); // 当前环境 development | production
 const moduleConfig = require('./webpack.moduleConfig.js'); // 模块配置
@@ -18,7 +18,7 @@ const webpackConfig = {
   mode: CURRENT_ENV, // development | production
   entry: {}, // 格式 Home:'./src/Home/js/Home.js'
   resolve: {
-    alias: {} // 格式 echarts:path.resolve(__dirname, 'src/lib/echarts.min.js')
+    alias: {} // 格式 echarts:path.resolve(__dirname, 'src/lib_ES5/echarts.min.js')
   },
   module: {
     rules: [
@@ -35,16 +35,16 @@ const webpackConfig = {
         })
       },
       {
-        test: /\.sass$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        use: extractSASS.extract({
+        use: extractSCSS.extract({
           use: ['css-loader', 'postcss-loader', 'sass-loader'],
           fallback: 'style-loader'
         })
       },
       {
         test: /\.js$/,
-        exclude: /node_modules|lib/,
+        exclude: /node_modules|lib_ES5/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -67,7 +67,7 @@ const webpackConfig = {
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin(['dist']), extractCSS, extractSASS],
+  plugins: [new CleanWebpackPlugin(['dist']), extractCSS, extractSCSS],
   output: {
     filename: '[name]/[name].bundle.js', // 输出目录下的文件路径
     path: path.resolve(__dirname, 'dist'), // 输出目录
@@ -95,7 +95,7 @@ if (CURRENT_ENV === 'development') {
       cacheGroups: {
         // 使用该特性需要先注入该js文件，js才会生效
         __BRIDGE__: {
-          test: /node_modules|lib|common/, // 指定目录才进行抽离，主要针对第三方包和公共的服务
+          test: /node_modules|lib_ES5|lib_ES6|common/, // 指定目录才进行抽离，主要针对第三方包和公共的服务
           chunks: 'initial',
           name: '__BRIDGE__',
           priority: 9,
