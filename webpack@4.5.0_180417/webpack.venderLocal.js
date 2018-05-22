@@ -9,8 +9,8 @@ const venderLocal = {
   testES6: {
     path: 'src/lib_ES6/testES6.js'
   },
-  $http: {
-    path: './src/common/$http.js'
+  http: {
+    path: 'src/common/http.js'
   }
 };
 module.exports = venderLocal;
