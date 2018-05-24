@@ -1,3 +1,13 @@
 <view class="container">
-  
+  <view class="box">
+    <view  class="input_bottom">
+      {{value}}
+      <view class="cursor"></view>
+    </view>
+    <input type="number" value="{{value}}" class="input_top" bindinput="inputHandler" />
+  </view>
+  ====================
+  <view>
+    {{value}}
+  </view>
 </view>

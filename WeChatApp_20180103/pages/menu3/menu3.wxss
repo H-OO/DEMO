@@ -1,0 +1,41 @@
+.box {
+  position: relative;
+  height: 120rpx;
+}
+.input_top {
+  position: absolute;
+  top: 0;
+  margin-left: -100%;
+  width: 200%;
+  height: 100rpx;
+  color: transparent;
+  opacity: 0;
+  z-index: 100;
+}
+.input_bottom {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.cursor {
+  display: inline-block;
+  position: relative;
+  left: 0rpx;
+  top: 12rpx;
+  width: 2rpx;
+  height: 60rpx;
+  background-color: #000;
+  animation: cursor 0.7s linear 0s infinite normal none;
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
