@@ -411,7 +411,7 @@ const config = {
 
 **ES6转ES5**
 ---
-`npm i -D npm i -D babel-loader babel-core babel-preset-env babel-plugin-transform-runtime`
+`npm i -D babel-loader babel-core babel-preset-env babel-plugin-transform-runtime`  
 创建.babelrc文件
 ```json
 // .babelrc
