@@ -9,12 +9,14 @@
 **起步**
 ---
 目录
-|- dist  
-|- src  
-    |- demo.js  
-    |- demo.html  
-|- webpack.config.js  
-|- package.json  
+```
+|- dist
+|- src
+    |- demo.js
+    |- demo.html
+|- webpack.config.js
+|- package.json
+```
 
 webpack配置文件
 ```js
@@ -174,10 +176,12 @@ module.exports = config;
 **样式自动添加前缀**
 ---
 创建postcss.config.js文件与webpack.config.js文件同级
+```
 |- src  
 |- webpack.config.js  
 |- postcss.config.js  
 |- package.json
+```
 ```js
 // postcss.config.js
 module.exports = {
@@ -477,9 +481,11 @@ import moduleName from 'moduleName';
 `npm i -D webpack-merge`
 
 创建  
+```
 |- webpack.common.js  
 |- webpack.dev.js  
 |- webpack.prod.js
+```
 
 ```json
 // package.json
