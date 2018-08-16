@@ -9,12 +9,12 @@
 **起步**
 ---
 目录
-|- dist
-|- src
-    |- demo.js
-    |- demo.html
-|- webpack.config.js
-|- package.json
+|- dist  
+|- src  
+    |- demo.js  
+    |- demo.html  
+|- webpack.config.js  
+|- package.json  
 
 webpack配置文件
 ```js
