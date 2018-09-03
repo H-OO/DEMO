@@ -13,8 +13,8 @@ CacheClass.prototype = {
   //可重复注册切换
   reg: function(arr) {
     if (Array.isArray(arr)) {
-      this.caches = arr
-      this.isReg = true
+      this.caches = arr // arr is App myCache, isArr
+      this.isReg = true // 在App中已进行初始化，改变状态
     }
   },
   check: function() {
@@ -25,11 +25,11 @@ CacheClass.prototype = {
     return true // success
   },
   add: function(val, cache) {
-    // val支持数组
+    // val支持字符串|数组
     if (!this.check) {
       return
     }
-    let arr = this.caches,
+    let arr = this.caches, // 获取缓存数组
       temp = null
     if (Array.isArray(val)) {
       if (!cache) {
@@ -47,7 +47,7 @@ CacheClass.prototype = {
       }
       return this.add(val, cache)
     }
-    arr.push(val)
+    arr.push(val) // 字符串则直接追加进缓存数组中
   },
   remove: function(val, cache) {
     // val支持数组
